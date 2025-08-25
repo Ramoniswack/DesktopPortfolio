@@ -24,13 +24,13 @@ const WindowManager: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: -20 }}
-          transition={{ 
-            type: "spring", 
-            stiffness: 200, 
+          transition={{
+            type: "spring",
+            stiffness: 200,
             damping: 25,
             duration: 0.3
           }}
-          style={{ 
+          style={{
             zIndex: window.zIndex,
             display: window.isMinimized ? 'none' : 'block',
             ...(isMobile && {

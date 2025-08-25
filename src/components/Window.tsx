@@ -27,24 +27,24 @@ const Window: React.FC<WindowProps> = ({ windowState }) => {
     resizeStartPos.current = { x: e.clientX, y: e.clientY };
     resizeStartSize.current = { ...windowState.size };
     resizeStartWindowPos.current = { ...windowState.position };
-    
+
     document.addEventListener('mousemove', handleResizeMove);
     document.addEventListener('mouseup', handleResizeEnd);
   };
 
   const handleResizeMove = (e: MouseEvent) => {
     if (!isResizing.current) return;
-    
+
     const deltaX = e.clientX - resizeStartPos.current.x;
     const deltaY = e.clientY - resizeStartPos.current.y;
-    
+
     let newWidth = resizeStartSize.current.width;
     let newHeight = resizeStartSize.current.height;
     let newX = resizeStartWindowPos.current.x;
     let newY = resizeStartWindowPos.current.y;
-    
+
     const direction = isResizing.current;
-    
+
     if (direction.includes('right')) {
       newWidth = Math.max(400, resizeStartSize.current.width + deltaX);
     }
@@ -65,9 +65,9 @@ const Window: React.FC<WindowProps> = ({ windowState }) => {
         newY = resizeStartWindowPos.current.y + (resizeStartSize.current.height - 300);
       }
     }
-    
+
     updateWindowSize(windowState.id, { width: newWidth, height: newHeight });
-    
+
     // Update position for left/top resizing
     if (direction.includes('left') || direction.includes('top')) {
       if (windowRef.current) {
@@ -132,7 +132,7 @@ const Window: React.FC<WindowProps> = ({ windowState }) => {
               className="absolute -top-1 -left-1 w-4 h-4 cursor-nw-resize bg-gray-400 opacity-0 hover:opacity-70 transition-opacity z-50"
               onMouseDown={(e) => handleResizeStart(e, 'top-left')}
             />
-            
+
             {/* Edge handles */}
             <div
               className="absolute -bottom-1 left-4 right-4 h-2 cursor-s-resize bg-gray-400 opacity-0 hover:opacity-50 transition-opacity z-50"
@@ -153,14 +153,14 @@ const Window: React.FC<WindowProps> = ({ windowState }) => {
           </>
         )}
         {/* Window Header */}
-        <div 
+        <div
           className="window-header h-12 flex items-center justify-between px-4 cursor-move select-none"
           style={{ backgroundColor: 'rgba(145, 200, 228, 0.2)' }}
         >
           <h3 className="text-sm font-semibold" style={{ color: 'var(--dark-slate)' }}>
             {windowState.title}
           </h3>
-          
+
           <div className="flex items-center space-x-2">
             <motion.button
               onClick={() => minimizeWindow(windowState.id)}
@@ -170,7 +170,7 @@ const Window: React.FC<WindowProps> = ({ windowState }) => {
             >
               <Minus size={12} className="text-yellow-800" />
             </motion.button>
-            
+
             <motion.button
               onClick={() => maximizeWindow(windowState.id)}
               className="w-6 h-6 rounded-full bg-green-400 hover:bg-green-500 flex items-center justify-center transition-colors"
@@ -179,7 +179,7 @@ const Window: React.FC<WindowProps> = ({ windowState }) => {
             >
               <Square size={10} className="text-green-800" />
             </motion.button>
-            
+
             <motion.button
               onClick={() => closeWindow(windowState.id)}
               className="w-6 h-6 rounded-full bg-red-400 hover:bg-red-500 flex items-center justify-center transition-colors"

@@ -93,11 +93,11 @@ const Desktop: React.FC<DesktopProps> = ({ onLogout }) => {
           key={icon.id}
           initial={{ opacity: 0, scale: 0.5, y: 50 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ 
-            delay: index * 0.1, 
-            type: "spring", 
+          transition={{
+            delay: index * 0.1,
+            type: "spring",
             stiffness: 200,
-            damping: 20 
+            damping: 20
           }}
           style={{
             position: 'absolute',
@@ -136,7 +136,7 @@ const Desktop: React.FC<DesktopProps> = ({ onLogout }) => {
               <li>• Hover over taskbar to reveal it</li>
             </ul>
           </div>
-          <button 
+          <button
             onClick={() => setShowTooltip(false)}
             className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
           >

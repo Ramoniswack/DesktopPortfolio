@@ -17,15 +17,15 @@ const Login: React.FC<LoginProps> = ({ onLogin, isLoggingIn }) => {
   }, []);
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString([], { 
-      hour: '2-digit', 
+    return date.toLocaleTimeString([], {
+      hour: '2-digit',
       minute: '2-digit',
-      second: '2-digit' 
+      second: '2-digit'
     });
   };
 
   const formatDate = (date: Date) => {
-    return date.toLocaleDateString([], { 
+    return date.toLocaleDateString([], {
       weekday: 'long',
       month: 'long',
       day: 'numeric'
@@ -34,13 +34,12 @@ const Login: React.FC<LoginProps> = ({ onLogin, isLoggingIn }) => {
 
   return (
     <motion.div
-      className={`w-full h-screen flex items-center justify-center relative px-4 ${
-        isDark 
-          ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800' 
-          : 'bg-gradient-to-br from-blue-50 via-white to-blue-100'
-      }`}
+      className={`w-full h-screen flex items-center justify-center relative px-4 ${isDark
+        ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800'
+        : 'bg-gradient-to-br from-blue-50 via-white to-blue-100'
+        }`}
       style={{
-        background: isDark 
+        background: isDark
           ? 'linear-gradient(135deg, var(--dark-slate) 0%, var(--neutral-beige) 100%)'
           : 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)'
       }}
@@ -51,30 +50,27 @@ const Login: React.FC<LoginProps> = ({ onLogin, isLoggingIn }) => {
     >
       {/* Time Display */}
       <motion.div
-        className="absolute top-4 sm:top-8 left-1/2 transform -translate-x-1/2 text-center"
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        className="absolute top-4 sm:top-8 right-4 sm:right-8 text-right"
+        initial={{ x: 50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
       >
-        <div className={`text-3xl sm:text-4xl md:text-6xl font-thin mb-2 ${
-          isDark ? 'text-white' : 'text-gray-800'
-        }`}>
+        <div className={`text-2xl sm:text-3xl md:text-4xl font-thin mb-1 ${isDark ? 'text-white' : 'text-gray-800'
+          }`}>
           {formatTime(time)}
         </div>
-        <div className={`text-sm sm:text-base md:text-lg ${
-          isDark ? 'text-gray-300' : 'text-gray-600'
-        }`}>
+        <div className={`text-xs sm:text-sm md:text-base ${isDark ? 'text-gray-300' : 'text-gray-600'
+          }`}>
           {formatDate(time)}
         </div>
       </motion.div>
 
       {/* Login Form */}
       <motion.div
-        className={`glass-morphism rounded-2xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md text-center mx-4 ${
-          isDark 
-            ? 'bg-white/10 border-white/20' 
-            : 'bg-white/80 border-gray-200/50'
-        }`}
+        className={`glass-morphism rounded-2xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md text-center mx-4 ${isDark
+          ? 'bg-white/10 border-white/20'
+          : 'bg-white/80 border-gray-200/50'
+          }`}
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
@@ -87,7 +83,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, isLoggingIn }) => {
           transition={{ type: "spring", stiffness: 300 }}
         >
           <img
-            src="/MyPhoto.png"
+            src="/logos/MyPhoto.png"
             alt="R.a.mohan Tiwari"
             className="w-full h-full object-cover"
             onError={(e) => {
@@ -103,15 +99,13 @@ const Login: React.FC<LoginProps> = ({ onLogin, isLoggingIn }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          <h2 className={`text-xl sm:text-2xl font-semibold mb-2 ${
-            isDark ? 'text-white' : 'text-gray-800'
-          }`}>
+          <h2 className={`text-xl sm:text-2xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-800'
+            }`}>
             R.a.mohan Tiwari
           </h2>
-          <p className={`text-sm sm:text-base ${
-            isDark ? 'text-gray-300' : 'text-gray-600'
-          }`}>
-            Frontend Developer & Creative
+          <p className={`text-sm sm:text-base ${isDark ? 'text-gray-300' : 'text-gray-600'
+            }`}>
+            a developer
           </p>
         </motion.div>
 
@@ -151,7 +145,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, isLoggingIn }) => {
               onClick={onLogin}
               className="w-full py-3 px-6 rounded-xl font-medium text-white transition-all duration-300 text-sm sm:text-base"
               style={{ backgroundColor: 'var(--sky-blue)' }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 backgroundColor: 'var(--steel-blue)'
               }}
@@ -165,9 +159,8 @@ const Login: React.FC<LoginProps> = ({ onLogin, isLoggingIn }) => {
 
       {/* Footer Info */}
       <motion.div
-        className={`absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-center text-xs sm:text-sm px-4 ${
-          isDark ? 'text-gray-400' : 'text-gray-600'
-        }`}
+        className={`absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-center text-xs sm:text-sm px-4 ${isDark ? 'text-gray-400' : 'text-gray-600'
+          }`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
