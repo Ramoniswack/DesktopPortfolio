@@ -15,7 +15,7 @@ A modern, interactive desktop environment built with React, TypeScript, and Vite
   - Profile image with fallback
   - Loading animation during login process
   - Responsive design for mobile/desktop
-- **Mouse Issue**: ✅ Fixed - Cursor visibility properly managed between login and desktop states
+- **Mouse Issue**: Fixed - Cursor visibility properly managed between login and desktop states
 
 #### 2. **Desktop Interface** (`src/components/Desktop.tsx`)
 
@@ -193,7 +193,7 @@ src/
 
 ### Known Issues
 
-1. **Login Page Cursor**: ✅ Fixed - Cursor visibility properly managed between login and desktop states
+1. **Login Page Cursor**:  Fixed - Cursor visibility properly managed between login and desktop states
 2. **Mobile Performance**: Complex animations may impact mobile performance
 3. **Window Resizing**: Edge cases in window resizing on certain screen sizes
 
